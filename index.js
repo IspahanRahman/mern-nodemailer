@@ -2,13 +2,16 @@ require('dotenv').config()
 const express=require('express')
 const nodemailer=require('nodemailer')
 const cors=require('cors')
-
+const setRoute = require('./routes/route')
+require('./connection')
 
 const app=express()
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
+
+setRoute(app)
 
 
 app.get('/',()=>{
@@ -60,4 +63,5 @@ const PORT=process.env.PORT||3001
 app.listen(PORT,()=>{
     console.log(`Server is runnig on port ${PORT}`)
 })
+
 
