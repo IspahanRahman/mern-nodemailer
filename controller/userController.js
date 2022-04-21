@@ -2,8 +2,6 @@ const User=require('../models/User')
  
 exports.signUpController=async (req,res)=>{
     const {email,password}=req.body
-    console.log(email)
-    console.log(password)
 
     try{
         const user=await User.create({email,password})

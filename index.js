@@ -25,9 +25,7 @@ app.post('/contact/api/form',(req,res)=>{
         service:'gmail',
         auth:{
            user:'ispahanrahman133@gmail.com',
-           pass:'spszsafxdfmijcfc'
-           
-            
+           pass:'spszsafxdfmijcfc' 
         }
 
     })

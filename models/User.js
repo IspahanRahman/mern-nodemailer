@@ -23,7 +23,7 @@ const Userschema=new mongoose.Schema({
 Userschema.pre('save',function(next){
     const user=this;
     if(!user.isModified('password')) return next();
-
+    //user is being created or updated
     bcrypt.genSalt(10,function(err,salt){
         if(err) return next(err)
 
@@ -46,7 +46,6 @@ Userschema.methods.toJSON=function(){
 }
 Userschema.methods.generateAuthToken=async function(){
     const user=this;
-    console.log('user is ',user)
     const token=jsonwebtoken.sign({_id:user._id.toString()},'appSecret');
     console.log(token)
     user.tokens=user.tokens.concat({token})
